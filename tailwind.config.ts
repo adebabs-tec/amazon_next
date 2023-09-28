@@ -24,6 +24,9 @@ const config: Config = {
         amazon_yellow: '#febd69',
         lightText: '#ccc',
       },
+      fontFamily: {
+        bodyFont: ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [],
