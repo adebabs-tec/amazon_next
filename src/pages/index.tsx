@@ -5,10 +5,7 @@ import Header from '../components/header/Header'
 export default function Home() {
   return (
     <main>
-      <Header />
-      <BottomHeader />
-      <div className="py-10 bg-gray-100 "></div>
-      <Footer />
+      <div className="max-w-screen-2xl mx-auto">This is the home page</div>
     </main>
   )
 }
