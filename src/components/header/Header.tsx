@@ -31,7 +31,7 @@ const Header = () => {
             </div>
           </div>
           {/* searchBar */}
-          <div className="flex-1 h-10 hidden xl:inline-flex items-center justify-between relative">
+          <div className="flex-1 h-10 hidden md:inline-flex items-center justify-between relative">
             <input
               className="w-full h-full rounded-md placeholder:text-sm text-base text-black border-[3px] border-transparent outline-none focus-visible:border-amazon_yellow"
               type="text"
