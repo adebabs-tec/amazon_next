@@ -40,8 +40,7 @@ const Products = ({ productData }: any) => {
                   </span>
                 </div>
               </div>
-
-              <hr />
+              <hr />c
             </div>
           )
         },
