@@ -10,7 +10,7 @@ export interface ProductProps {
   _id: number
 }
 
-export interface StoreProps {
+export interface StoreProduct {
   brand: string
   category: string
   description: string

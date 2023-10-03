@@ -1,11 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { StoreProps } from '../../type'
+import { StoreProduct } from '../../type'
 
 interface NextState {
   productData: StoreProduct[]
+  favoriteData: StoreProduct[]
+  allProducts: StoreProduct[]
+  userInfo: null | string
 }
 
-const initialState = {
+const initialState: NextState = {
   productData: [],
   favoriteData: [],
   allProducts: [],
@@ -18,7 +21,7 @@ export const nextSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: StoreProps) => item._id === action.payload,
+        (item: StoreProduct) => item._id === action.payload._id,
       )
       if (existingProduct) {
         existingProduct.quantity += action.payload.quantity
@@ -26,6 +29,21 @@ export const nextSlice = createSlice({
         state.productData.push(action.payload)
       }
     },
+    addFavorite: (state, action) => {
+      const existingProduct = state.favoriteData.find(
+        (item: StoreProduct) => item._id === action.payload._id,
+      )
+      if (existingProduct) {
+        existingProduct.quantity += action.payload.quantity
+      } else {
+        state.favoriteData.push(action.payload)
+      }
+    },
+    increaseQuantity: (state, action) => {
+      const existingProduct = state.favoriteData.find(
+        (item: StoreProduct) => item._id === action.payload._id,
+      )
+    
   },
 })
 export const { addToCart } = nextSlice.actions
