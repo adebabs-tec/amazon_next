@@ -5,8 +5,13 @@ import cartIcon from '../../images/carticon.png'
 import { BiCaretDown } from 'react-icons/bi'
 import { HiOutlineSearch } from 'react-icons/hi'
 import { SlLocationPin } from 'react-icons/sl'
+import { useSelector } from 'react-redux'
+import { StateProps } from '../../../type'
 
 const Header = () => {
+  const { productData, favoriteData } = useSelector(
+    (state: StateProps) => state.next,
+  )
   return (
     <>
       <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50">
@@ -55,6 +60,7 @@ const Header = () => {
           <div className="text-xs text-gray-100 px-2 border border-transparent hover:border-white cursor-pointer duration-300 flex flex-col items-center justify-center h-[70%]">
             <p>Marked</p>
             <p className="text-white font-bold">& Favourite</p>
+            {favoriteData > 0 && <span>favoriteData.length</span>}
           </div>
           {/* cart */}
           <Link
@@ -68,7 +74,7 @@ const Header = () => {
             />
             <p className="text-xs text-white font-bold mt-3">Cart</p>
             <span className="absolute text-amazon_yellow text-sm top-2 left-[29px] font-semibold">
-              0
+              {productData ? productData.length : 0}
             </span>
           </Link>
         </div>
