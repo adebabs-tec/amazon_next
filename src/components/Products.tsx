@@ -36,7 +36,25 @@ const Products = ({ productData }: any) => {
                   className="w-full h-full object-cover scale-90 hover:scale-100 transition-transform duration-300"
                 />
                 <div className="w-12 h-24 absolute bottom-10 right-0 border-[1px] border-gray-400 bg-white rounded-md flex flex-col translate-x-20 group-hover:translate-x-0 duration-300 transition-transform overflow-hidden">
-                  <span className="w-full h-full border-b-[1px] border-b-gray-400 flex justify-center items-center text-xl bg-transparent hover:bg-amazon_yellow cursor-pointer duration-300">
+                  <span
+                    onClick={() =>
+                      dispatch(
+                        addToCart({
+                          _id: _id,
+                          brand: brand,
+                          category: category,
+                          image: image,
+                          description: description,
+                          isNew: isNew,
+                          oldPrice: oldPrice,
+                          price: price,
+                          title: title,
+                          quantity: 1,
+                        }),
+                      )
+                    }
+                    className="w-full h-full border-b-[1px] border-b-gray-400 flex justify-center items-center text-xl bg-transparent hover:bg-amazon_yellow cursor-pointer duration-300"
+                  >
                     <HiShoppingCart />
                   </span>
                   <span className="w-full h-full border-b-[1px] border-b-gray-400 flex justify-center items-center text-xl bg-transparent hover:bg-amazon_yellow cursor-pointer duration-300">

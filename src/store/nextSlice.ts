@@ -43,8 +43,47 @@ export const nextSlice = createSlice({
       const existingProduct = state.favoriteData.find(
         (item: StoreProduct) => item._id === action.payload._id,
       )
-    
+      existingProduct && existingProduct.quantity++
+    },
+    decreaseQuantity: (state, action) => {
+      const existingProduct = state.favoriteData.find(
+        (item: StoreProduct) => item._id === action.payload._id,
+      )
+      if (existingProduct?.quantity === 1) {
+        existingProduct.quantity = 1
+      } else {
+        existingProduct!.quantity--
+      }
+    },
+    deleteProduct: (state, action) => {
+      state.productData = state.productData.filter(
+        (item) => item._id !== action.payload,
+      )
+    },
+    resetCart: (state) => {
+      state.productData = []
+    },
+    addUser: (state, action) => {
+      state.userInfo = action.payload
+    },
+    removeUser: (state, action) => {
+      state.userInfo = null
+    },
+    setAllProducts: (state, action) => {
+      state.allProducts = action.payload
+    },
   },
 })
-export const { addToCart } = nextSlice.actions
+
+export const {
+  addToCart,
+  addFavorite,
+  increaseQuantity,
+  decreaseQuantity,
+  deleteProduct,
+  resetCart,
+  addUser,
+  removeUser,
+  setAllProducts,
+} = nextSlice.actions
 export default nextSlice.reducer
