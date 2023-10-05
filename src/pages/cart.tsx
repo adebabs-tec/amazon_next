@@ -28,7 +28,7 @@ const CartPage = () => {
               <ResetCart />
             </div>
           </div>
-          <div className="bg-white h-64 col-span-1 rounded-lg flex items-center justify-center">
+          <div className="bg-white h-64 col-span-1 rounded-lg flex items-center justify-center px-2">
             <CartPayment />
           </div>
         </>
