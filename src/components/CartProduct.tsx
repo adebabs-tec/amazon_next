@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { cartProductProps } from '../../type'
 import FormattedPrice from './FormattedPrice'
 import { LuMinus, LuPlus } from 'react-icons/lu'
-import { IoMdClose }
+import { IoMdClose } from 'react-icons/io'
 
 const CartProduct = ({ item }: cartProductProps) => {
   return (
@@ -35,7 +35,9 @@ const CartProduct = ({ item }: cartProductProps) => {
                 <LuMinus />
               </span>
             </div>
-            <div></div>
+            <div className="flex items-center text-sm font-medium text-gray-400 hover:text-red-600 cursor-pointer duration-300">
+              <IoMdClose className="mt-[2px]" /> <p>remove</p>
+            </div>
           </div>
         </div>
       </div>
