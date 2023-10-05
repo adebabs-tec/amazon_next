@@ -29,3 +29,19 @@ export interface StateProps {
   userInfo: null | string
   next: any
 }
+interface Item {
+  brand: string
+  category: string
+  description: string
+  image: string
+  isNew: boolean
+  oldPrice: number
+  price: number
+  title: string
+  _id: number
+  quantity: number
+}
+
+export interface cartProductProps {
+  item: Item
+}
