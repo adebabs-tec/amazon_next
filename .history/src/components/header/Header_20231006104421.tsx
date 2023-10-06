@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StateProps } from '../../../type'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useEffect } from 'react'
-import { addUser, userInfo } from '@/store/nextSlice'
+import { addUser } from '@/store/nextSlice'
+import { userInfo } from 'os'
 
 const Header = () => {
   const { data: session } = useSession()
@@ -65,7 +66,7 @@ const Header = () => {
           {/* signin */}
           {userInfo ? (
             <div>
-              <img src={userInfo.image} alt="" />
+              <img src="" alt="" />
             </div>
           ) : (
             <div

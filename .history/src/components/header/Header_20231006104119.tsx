@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StateProps } from '../../../type'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useEffect } from 'react'
-import { addUser, userInfo } from '@/store/nextSlice'
+import { addUser } from '@/store/nextSlice'
 
 const Header = () => {
   const { data: session } = useSession()
@@ -27,7 +27,7 @@ const Header = () => {
         }),
       )
     }
-  }, [session])
+  })
   return (
     <>
       <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50">
@@ -63,24 +63,18 @@ const Header = () => {
             </span>
           </div>
           {/* signin */}
-          {userInfo ? (
-            <div>
-              <img src={userInfo.image} alt="" />
-            </div>
-          ) : (
-            <div
-              onClick={() => signIn()}
-              className="text-xs text-gray-100 px-2 border border-transparent hover:border-white cursor-pointer duration-300 flex flex-col items-center justify-center h-[70%]"
-            >
-              <p>Hello, sign in</p>
-              <p className="text-white font-bold flex items-center">
-                Account & Lists{' '}
-                <span>
-                  <BiCaretDown />
-                </span>
-              </p>
-            </div>
-          )}
+          <div
+            onClick={() => signIn()}
+            className="text-xs text-gray-100 px-2 border border-transparent hover:border-white cursor-pointer duration-300 flex flex-col items-center justify-center h-[70%]"
+          >
+            <p>Hello, sign in</p>
+            <p className="text-white font-bold flex items-center">
+              Account & Lists{' '}
+              <span>
+                <BiCaretDown />
+              </span>
+            </p>
+          </div>
           {/* favourite */}
           <div className="text-xs text-gray-100 px-2 border border-transparent hover:border-white cursor-pointer duration-300 flex flex-col items-center justify-center h-[70%] relative">
             <p>Marked</p>

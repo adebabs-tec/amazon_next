@@ -10,6 +10,7 @@ import { StateProps } from '../../../type'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useEffect } from 'react'
 import { addUser, userInfo } from '@/store/nextSlice'
+import {} from 'os'
 
 const Header = () => {
   const { data: session } = useSession()
