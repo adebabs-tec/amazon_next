@@ -9,11 +9,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StateProps } from '../../../type'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import { useEffect } from 'react'
-import { addUser } from '@/store/nextSlice'
+import { addUser} from '@/store/nextSlice'
+
 
 const Header = () => {
   const { data: session } = useSession()
-  const { productData, favoriteData, userInfo } = useSelector(
+  const { productData, favoriteData } = useSelector(
     (state: StateProps) => state.next,
   )
   const dispatch = useDispatch()
@@ -64,16 +65,8 @@ const Header = () => {
           </div>
           {/* signin */}
           {userInfo ? (
-            <div className="px-2 border border-transparent hover:border-white cursor-pointer duration-300 flex items-center justify-center h-[70%]">
-              <img
-                src={userInfo.image}
-                alt="userImage"
-                className="w-8 h-8 rounded-full object-cover"
-              />
-              <div className="text-xs text-gray-100">
-                <p>{userInfo.name}</p>
-                <p>{userInfo.email}</p>
-              </div>
+            <div>
+              <img src={userInfo.image} alt="" />
             </div>
           ) : (
             <div
