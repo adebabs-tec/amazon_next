@@ -1,17 +1,12 @@
 import React from 'react'
-import { signOut } from 'next-auth/react'
 import { LuMenu } from 'react-icons/lu'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { StateProps } from '../../../type'
-import { removeUser } from '@/store/nextSlice'
 
 const BottomHeader = () => {
-  const dispatch = useDispatch()
-  const { userInfo } = useSelector((state: StateProps) => state.next)
-  const handleSignOut = () => {
-    signOut()
-    dispatch(removeUser())
-  }
+  const { productData, favoriteData, userInfo } = useSelector(
+    (state: StateProps) => state.next,
+  )
   return (
     <div className="w-full h-10 bg-amazon_light text-sm text-white px-4 flex items-center">
       <p className="flex items-center gap-1 h-8 border border-transparent hover:border-white cursor-pointer duration-300 px-2">

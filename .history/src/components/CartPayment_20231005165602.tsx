@@ -1,3 +1,4 @@
+import next from 'next'
 import React, { useEffect, useState } from 'react'
 import { SiMediamarkt } from 'react-icons/si'
 import { useSelector } from 'react-redux'
@@ -5,9 +6,7 @@ import { StateProps, StoreProduct } from '../../type'
 import FormattedPrice from './FormattedPrice'
 
 const CartPayment = () => {
-  const { productData, userInfo } = useSelector(
-    (state: StateProps) => state.next,
-  )
+  const { productData } = useSelector((state: StateProps) => state.next)
   const [totalAmount, setTotalAmount] = useState(0)
   useEffect(() => {
     let amt = 0
@@ -34,16 +33,14 @@ const CartPayment = () => {
           <FormattedPrice amount={totalAmount} />
         </span>
       </p>
-      {userInfo && (
-        <div className="flex flex-col items-center">
-          <button className="w-full h-10 text-sm font-semibold bg-amazon_blue bg-opacity-50 text-white rounded-lg cursor-not-allowed">
-            Proceed to Buy
-          </button>
-          <p className="text-xs mt-1 text-red-500 font-semibold animate-bounce">
-            Please login to continue
-          </p>
-        </div>
-      )}
+      <div className="flex flex-col items-center">
+        <button className="w-full h-10 text-sm font-semibold bg-amazon_blue bg-opacity-50 text-white rounded-lg cursor-not-allowed">
+          Proceed to Buy
+        </button>
+        <p className="text-xs mt-1 text-red-500 font-semibold animate-bounce">
+          Please login to continue
+        </p>
+      </div>
     </div>
   )
 }

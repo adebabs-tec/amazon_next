@@ -10,7 +10,7 @@ const BottomHeader = () => {
   const { userInfo } = useSelector((state: StateProps) => state.next)
   const handleSignOut = () => {
     signOut()
-    dispatch(removeUser())
+    dispatch(removeUser)
   }
   return (
     <div className="w-full h-10 bg-amazon_light text-sm text-white px-4 flex items-center">

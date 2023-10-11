@@ -1,3 +1,5 @@
+import next from 'next'
+import { userInfo } from 'os'
 import React, { useEffect, useState } from 'react'
 import { SiMediamarkt } from 'react-icons/si'
 import { useSelector } from 'react-redux'
@@ -5,9 +7,7 @@ import { StateProps, StoreProduct } from '../../type'
 import FormattedPrice from './FormattedPrice'
 
 const CartPayment = () => {
-  const { productData, userInfo } = useSelector(
-    (state: StateProps) => state.next,
-  )
+  const { productData } = useSelector((state: StateProps) => state.next)
   const [totalAmount, setTotalAmount] = useState(0)
   useEffect(() => {
     let amt = 0

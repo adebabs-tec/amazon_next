@@ -1,3 +1,5 @@
+import next from 'next'
+import { userInfo } from 'os'
 import React, { useEffect, useState } from 'react'
 import { SiMediamarkt } from 'react-icons/si'
 import { useSelector } from 'react-redux'

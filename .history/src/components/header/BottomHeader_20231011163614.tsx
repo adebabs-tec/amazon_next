@@ -1,15 +1,13 @@
 import React from 'react'
-import { signOut } from 'next-auth/react'
 import { LuMenu } from 'react-icons/lu'
 import { useDispatch, useSelector } from 'react-redux'
 import { StateProps } from '../../../type'
-import { removeUser } from '@/store/nextSlice'
 
 const BottomHeader = () => {
   const dispatch = useDispatch()
   const { userInfo } = useSelector((state: StateProps) => state.next)
   const handleSignOut = () => {
-    signOut()
+    signout()
     dispatch(removeUser())
   }
   return (

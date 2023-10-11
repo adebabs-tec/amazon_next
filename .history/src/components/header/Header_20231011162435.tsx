@@ -71,7 +71,7 @@ const Header = () => {
                 className="w-8 h-8 rounded-full object-cover"
               />
               <div className="text-xs text-gray-100 flex flex-col justify-between">
-                <p className="text-white font-bold">{userInfo.name}</p>
+                <p>{userInfo.name}</p>
                 <p>{userInfo.email}</p>
               </div>
             </div>
