@@ -3,7 +3,7 @@ import { SiMediamarkt } from 'react-icons/si'
 import { useSelector } from 'react-redux'
 import { StateProps, StoreProduct } from '../../type'
 import FormattedPrice from './FormattedPrice'
-import { loadStripe } from '@stripe/stripe-js'
+import { loadStripe } from '@stripe/stripe-js
 
 const CartPayment = () => {
   const { productData, userInfo } = useSelector(

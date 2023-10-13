@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { StateProps, StoreProduct } from '../../type'
 import FormattedPrice from './FormattedPrice'
 import { loadStripe } from '@stripe/stripe-js'
+import { json } from 'stream/consumers'
 
 const CartPayment = () => {
   const { productData, userInfo } = useSelector(
@@ -34,12 +35,6 @@ const CartPayment = () => {
     })
     const checkoutSession = await response.json()
     //redirecting user/customer to Stripe checkout
-    const result: any = await stripe?.redirectToCheckout({
-      sessionId: checkoutSession.id,
-    })
-    if (result.error) {
-      alert(result?.error.message)
-    }
   }
   return (
     <div className="flex flex-col gap-4">

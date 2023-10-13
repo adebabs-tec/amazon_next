@@ -25,21 +25,6 @@ const CartPayment = () => {
 
   const handleCheckout = async () => {
     const stripe = await stripePromise
-    const response = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: {
-        'Contenet-Type': 'application/json',
-      },
-      body: JSON.stringify({ items: productData, email: session?.user?.email }),
-    })
-    const checkoutSession = await response.json()
-    //redirecting user/customer to Stripe checkout
-    const result: any = await stripe?.redirectToCheckout({
-      sessionId: checkoutSession.id,
-    })
-    if (result.error) {
-      alert(result?.error.message)
-    }
   }
   return (
     <div className="flex flex-col gap-4">

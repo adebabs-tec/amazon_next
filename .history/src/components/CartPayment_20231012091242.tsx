@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { StateProps, StoreProduct } from '../../type'
 import FormattedPrice from './FormattedPrice'
 import { loadStripe } from '@stripe/stripe-js'
+import { json } from 'stream/consumers'
 
 const CartPayment = () => {
   const { productData, userInfo } = useSelector(
@@ -38,7 +39,7 @@ const CartPayment = () => {
       sessionId: checkoutSession.id,
     })
     if (result.error) {
-      alert(result?.error.message)
+      alert()
     }
   }
   return (
