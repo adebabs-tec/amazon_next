@@ -17,8 +17,10 @@ const CartPayment = () => {
     })
     setTotalAmount(amt)
   }, [productData])
-
-  const handleCheckout = async () => {}
+  
+  const handleCheckout = async () => {
+  
+  }
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-2">
