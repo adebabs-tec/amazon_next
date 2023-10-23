@@ -44,7 +44,7 @@ const CartPayment = () => {
           </button>
         </div>
       ) : (
-        <RemitaPayment className="flex flex-col items-center">
+        <RemitaPayment remitaData={data} className="flex flex-col items-center">
           <button
             onClick={handleCheckout}
             className="w-full h-10 text-sm font-semibold bg-amazon_blue bg-opacity-50 text-white rounded-lg cursor-not-allowed"

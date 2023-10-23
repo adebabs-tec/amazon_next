@@ -3,7 +3,6 @@ import { SiMediamarkt } from 'react-icons/si'
 import { useSelector } from 'react-redux'
 import { StateProps, StoreProduct } from '../../type'
 import FormattedPrice from './FormattedPrice'
-import RemitaPayment from 'react-remita'
 
 const CartPayment = () => {
   const { productData, userInfo } = useSelector(
@@ -44,7 +43,7 @@ const CartPayment = () => {
           </button>
         </div>
       ) : (
-        <RemitaPayment className="flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <button
             onClick={handleCheckout}
             className="w-full h-10 text-sm font-semibold bg-amazon_blue bg-opacity-50 text-white rounded-lg cursor-not-allowed"
@@ -54,7 +53,7 @@ const CartPayment = () => {
           <p className="text-xs mt-1 text-red-500 font-semibold animate-bounce">
             Please login to continue
           </p>
-        </RemitaPayment>
+        </div>
       )}
     </div>
   )
