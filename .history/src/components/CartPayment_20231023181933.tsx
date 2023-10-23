@@ -4,12 +4,13 @@ import { useSelector } from 'react-redux'
 import { StateProps, StoreProduct } from '../../type'
 import SuccessPage from '../pages/SuccessPage'
 import FormattedPrice from './FormattedPrice'
+import axios from 'axios'
 import PaystackButton from 'react-paystack'
 
 const publicKey = process.env.NEXT_APP_PS_PUBLIC_TEST_KEY
 
 const CartPayment = () => {
-  const paystackRef = useRef<any | null>(null)
+  const paystackRef = useRef<PaystackButton | null>(null)
   const { productData, userInfo } = useSelector(
     (state: StateProps) => state.next,
   )

@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SiMediamarkt } from 'react-icons/si'
 import { useSelector } from 'react-redux'
 import { StateProps, StoreProduct } from '../../type'
 import SuccessPage from '../pages/SuccessPage'
 import FormattedPrice from './FormattedPrice'
+import axios from 'axios'
 import PaystackButton from 'react-paystack'
 
 const publicKey = process.env.NEXT_APP_PS_PUBLIC_TEST_KEY
 
 const CartPayment = () => {
-  const paystackRef = useRef<any | null>(null)
   const { productData, userInfo } = useSelector(
     (state: StateProps) => state.next,
   )
@@ -36,24 +36,12 @@ const CartPayment = () => {
       ],
     },
   }
-
   const handlePaymentSuccess = (response: any) => {
     return <SuccessPage />
   }
 
   const handlePaymentClose = () => {
     alert('Thanks for shopping with us!')
-  }
-
-  const initiatePayment = () => {
-    if (paystackRef.current) {
-      paystackRef.current.handlePaystackPayment()
-    }
-  }
-
-  function generateReference() {
-    // You can generate a reference based on a timestamp or any other method
-    return `ref_${Date.now()}`
   }
 
   const handleCheckout = async () => {}
@@ -76,10 +64,7 @@ const CartPayment = () => {
       </p>
       {userInfo ? (
         <div className="flex flex-col items-center">
-          <button
-            className="w-full h-10 text-sm font-semibold bg-amazon_blue text-white rounded-lg hover:bg-amazon_yellow hover:text-black"
-            onClick={initiatePayment}
-          >
+          <button className="w-full h-10 text-sm font-semibold bg-amazon_blue text-white rounded-lg hover:bg-amazon_yellow hover:text-black">
             Proceed to Buy
           </button>
           <PaystackButton
@@ -91,9 +76,8 @@ const CartPayment = () => {
             embed={false}
             reference={generateReference()} // You can generate a unique reference for each payment
             email={componentProps.email}
-            amount={componentProps.totalAmount}
+            amount={componentProps.amount}
             paystackkey={publicKey}
-            ref={(ref) => (paystackRef.current = ref)}
           />
         </div>
       ) : (
